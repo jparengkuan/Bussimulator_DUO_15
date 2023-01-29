@@ -35,15 +35,14 @@ public class Bus{
 	public boolean halteBereikt(){
 		halteNummer+=richting;
 		bijHalte=true;
-		if ((halteNummer>=lijn.getLengte()-1) || (halteNummer == 0)) {
+		if ((halteNummer>=lijn.getLengte()-1) || (halteNummer == 0)) { // <-------- Query
 			System.out.printf("Bus %s heeft eindpunt (halte %s, richting %d) bereikt.%n", 
 					lijn.name(), lijn.getHalte(halteNummer), lijn.getRichting(halteNummer)*richting);
 			return true;
 		}
 		else {
 			System.out.printf("Bus %s heeft halte %s, richting %d bereikt.%n", 
-					lijn.name(), lijn.getHalte(halteNummer), lijn.getRichting(halteNummer)*richting);		
-			naarVolgendeHalte();
+					lijn.name(), lijn.getHalte(halteNummer), lijn.getRichting(halteNummer)*richting);
 		}		
 		return false;
 	}

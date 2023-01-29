@@ -40,6 +40,9 @@ public class Runner implements Runnable {
 				bus.sendLastETA(nu);
 				itr.remove();
 			}
+			else {
+				bus.naarVolgendeHalte();
+			}
 		}		
 	}
 
@@ -134,7 +137,7 @@ public class Runner implements Runnable {
 //		}
 //	}
 //	Om de tijdsynchronisatie te gebruiken moet de onderstaande run() gebruikt worden
-//
+
 	@Override
 	public void run() {
 		int tijd=0;

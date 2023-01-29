@@ -18,7 +18,7 @@ public class InfobordTijdFuncties {
 		}
     }
 	
-	public String getFormattedTimeFromCounter(int counter){
+	public static String getFormattedTimeFromCounter(int counter){
 		int uur = counter/3600;
 		int minuten = (counter-3600*uur)/60;
 		int seconden = counter - 3600*uur - 60*minuten;
