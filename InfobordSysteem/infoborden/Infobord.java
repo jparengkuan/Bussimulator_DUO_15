@@ -21,21 +21,21 @@ public class Infobord extends Application{
 	private String halte;
 	private String richting;
 	private Berichten berichten;
-	
+
 	public Infobord(String halte, String richting) {
 		this.titel = "Bushalte " + halte + " in richting " + richting;
 		this.halte=halte;
 		this.richting=richting;
 		this.berichten=new Berichten();
 	}
-	
+
 	public void verwerkBericht() {
 		if (berichten.hetBordMoetVerverst()) {
 			String[] infoTekstRegels = berichten.repaintInfoBordValues();
-			//Deze code hoort bij opdracht 3
-			InfobordTijdFuncties tijdfuncties = new InfobordTijdFuncties();
-			String tijd = tijdfuncties.getCentralTime().toString();
-			tijdRegel.setText(tijd);
+//			Deze code hoort bij opdracht 3
+//			InfobordTijdFuncties tijdfuncties = new InfobordTijdFuncties();
+//			String tijd = tijdfuncties.getCentralTime().toString();
+//			tijdRegel.setText(tijd);
 			infoRegel1.setText(infoTekstRegels[0]);
 			infoRegel2.setText(infoTekstRegels[1]);
 			infoRegel3.setText(infoTekstRegels[2]);
@@ -47,7 +47,7 @@ public class Infobord extends Application{
 		Runnable updater = new Runnable() {
 			@Override
 			public void run() {
-				verwerkBericht();	
+				verwerkBericht();
 			}
 		};
 		Platform.runLater(updater);
@@ -55,8 +55,8 @@ public class Infobord extends Application{
 
 	@Override
 	public void start(Stage primaryStage) {
-		String selector = "(HALTE = '"+ halte + "') AND (RICHTING='"+ richting + "')";
-		thread(new ListenerStarter(selector, this, berichten),false);
+		String selector = "JSONBerichten";
+		//thread(new ListenerStarter(selector, this, berichten),false);
 		GridPane pane = new GridPane();
 		pane.setAlignment(Pos.CENTER_LEFT);
 		pane.setPadding(new Insets(11.5, 12.5, 13.5, 14.5));
@@ -64,15 +64,15 @@ public class Infobord extends Application{
 		pane.setVgap(5.5);
 
 		// Place nodes in the pane
-		pane.add(new Label("Voor het laatst bijgewerkt op :"), 0, 0); 
-		pane.add(tijdRegel, 1, 0); 
-		pane.add(new Label("1:"), 0, 1); 
+		pane.add(new Label("Voor het laatst bijgewerkt op :"), 0, 0);
+		pane.add(tijdRegel, 1, 0);
+		pane.add(new Label("1:"), 0, 1);
 		pane.add(infoRegel1, 1, 1);
-		pane.add(new Label("2:"), 0, 2); 
+		pane.add(new Label("2:"), 0, 2);
 		pane.add(infoRegel2, 1, 2);
-		pane.add(new Label("3:"), 0, 3); 
+		pane.add(new Label("3:"), 0, 3);
 		pane.add(infoRegel3, 1, 3);
-		pane.add(new Label("4:"), 0, 4); 
+		pane.add(new Label("4:"), 0, 4);
 		pane.add(infoRegel4, 1, 4);
 		// Create a scene and place it in the stage
 		Scene scene = new Scene(pane,500,150);

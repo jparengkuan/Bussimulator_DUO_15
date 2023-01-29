@@ -11,8 +11,8 @@ import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 public  class ListenerStarter implements Runnable, ExceptionListener {
-	private String selector="";
-	private Infobord infobord;
+	private String selector="JSONBerichten";
+	private InfobordController infobordController;
 	private Berichten berichten;
 	
 	public ListenerStarter() {
@@ -20,7 +20,7 @@ public  class ListenerStarter implements Runnable, ExceptionListener {
 	
 	public ListenerStarter(String selector, Infobord infobord, Berichten berichten) {
 		this.selector=selector;
-		this.infobord=infobord;
+		this.infobordController=infobordController;
 		this.berichten=berichten;
 	}
 
