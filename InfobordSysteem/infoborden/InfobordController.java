@@ -13,7 +13,7 @@ public class InfobordController {
     public InfobordController(InfobordModel model, InfobordView view){
         this.berichten = new Berichten();
         initializeModel(model);
-        initializeView(view, "JSONBerichten");
+        initializeView(view);
     }
 
     public void initializeModel(InfobordModel model){
@@ -25,13 +25,13 @@ public class InfobordController {
 
     }
 
-    public void initializeView(InfobordView view, String selector){
+    public void initializeView(InfobordView view){
         if(this.infobordView != null){
             throw new IllegalStateException("View is already initialized.");
         }
 
         this.infobordView = view;
-        thread(new ListenerStarter(selector, this, berichten), false);
+        thread(new ListenerStarter("JSONBerichten", this, berichten), false);
     }
 
     public String[] getInfoRegels(){
