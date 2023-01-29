@@ -10,7 +10,7 @@ public class QueueListener implements MessageListener {
 	private InfobordController infobordController;
 	private Berichten berichten;
 	
-	public QueueListener(String consumerName, Infobord infobord, Berichten berichten) {
+	public QueueListener(String consumerName, InfobordController infobordController, Berichten berichten) {
 		this.consumerName = consumerName;
 		this.infobordController=infobordController;
 		this.berichten=berichten;

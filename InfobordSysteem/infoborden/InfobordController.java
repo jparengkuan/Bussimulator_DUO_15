@@ -1,4 +1,4 @@
-package InfobordSysteem.infoborden;
+package infoborden;
 
 import javafx.application.Platform;
 

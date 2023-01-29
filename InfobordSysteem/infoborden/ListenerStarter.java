@@ -18,7 +18,7 @@ public  class ListenerStarter implements Runnable, ExceptionListener {
 	public ListenerStarter() {
 	}
 	
-	public ListenerStarter(String selector, Infobord infobord, Berichten berichten) {
+	public ListenerStarter(String selector, InfobordController infobordController, Berichten berichten) {
 		this.selector=selector;
 		this.infobordController=infobordController;
 		this.berichten=berichten;
@@ -35,7 +35,7 @@ public  class ListenerStarter implements Runnable, ExceptionListener {
             Destination destination = session.createTopic("INFOBord.TOPIC");
             MessageConsumer consumer = session.createConsumer(destination, selector);
             System.out.println("Produce, wait, consume"+ selector);
-            consumer.setMessageListener(new QueueListener(selector, infobord, berichten));
+            consumer.setMessageListener(new QueueListener(selector, infobordController, berichten));
         } catch (Exception e) {
             System.out.println("Caught: " + e);
             e.printStackTrace();

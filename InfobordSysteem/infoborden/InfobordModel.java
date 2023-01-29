@@ -1,4 +1,4 @@
-package InfobordSysteem.infoborden;
+package infoborden;
 
 public class InfobordModel {
     private String[] infoRegels;
